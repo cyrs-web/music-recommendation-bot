@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelodyBot — AI Music Recommendation Chatbot</title>
+    <meta name="description" content="Discover music tailored to your mood, favorite genre, or artist with MelodyBot.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Ambient Glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="brand-avatar">
+                    <span class="avatar-icon">🎧</span>
+                    <span class="status-indicator"></span>
+                </div>
+                <div class="brand-info">
+                    <h1 class="brand-title">MelodyBot</h1>
+                    <p class="brand-subtitle">Your Personal Music Assistant</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="surprise-btn" class="btn btn-outline" title="Get a random mix">
+                    <span>🎲</span> Surprise Me
+                </button>
+                <button id="clear-chat-btn" class="btn btn-ghost" title="Clear chat history">
+                    <span>🗑️</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Chat Area -->
+        <main class="chat-viewport" id="chat-viewport">
+            <div class="chat-messages" id="chat-messages">
+                <!-- Welcome Message from Bot -->
+                <div class="message-row bot">
+                    <div class="msg-avatar">🤖</div>
+                    <div class="msg-content">
+                        <div class="msg-bubble">
+                            <p><strong>Hey there! Welcome to MelodyBot! 🎶</strong></p>
+                            <p>Tell me how you're feeling, your favorite music genre, or an artist, and I'll find 3–5 great songs for your playlist!</p>
+                            <div class="quick-intro-chips">
+                                <button class="chip intro-chip" data-query="happy">😊 Happy Vibes</button>
+                                <button class="chip intro-chip" data-query="relaxed">🌿 Chill & Relax</button>
+                                <button class="chip intro-chip" data-query="focus">☕ Lo-Fi / Study</button>
+                                <button class="chip intro-chip" data-query="rock">🎸 Rock Classics</button>
+                                <button class="chip intro-chip" data-query="Taylor Swift">🎤 Taylor Swift</button>
+                            </div>
+                        </div>
+                        <span class="msg-timestamp">Just now</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Quick Filter Carousel -->
+        <section class="quick-filter-bar" aria-label="Quick recommendations filter">
+            <span class="filter-label">Quick Pick:</span>
+            <div class="filter-chips-scroll" id="chips-scroll">
+                <button class="chip" data-type="mood" data-value="happy">😊 Happy</button>
+                <button class="chip" data-type="mood" data-value="energetic">⚡ Energetic</button>
+                <button class="chip" data-type="mood" data-value="relaxed">🍃 Relaxed</button>
+                <button class="chip" data-type="mood" data-value="focus">🎯 Focus</button>
+                <button class="chip" data-type="mood" data-value="romantic">💖 Romantic</button>
+                <button class="chip" data-type="mood" data-value="sad">🌧️ Melancholic</button>
+                <div class="chip-divider"></div>
+                <button class="chip" data-type="genre" data-value="pop">✨ Pop</button>
+                <button class="chip" data-type="genre" data-value="rock">🎸 Rock</button>
+                <button class="chip" data-type="genre" data-value="hip-hop">🔥 Hip-Hop</button>
+                <button class="chip" data-type="genre" data-value="jazz">🎷 Jazz</button>
+                <button class="chip" data-type="genre" data-value="lo-fi">🎧 Lo-Fi</button>
+                <button class="chip" data-type="genre" data-value="r&b">🎙️ R&B</button>
+                <button class="chip" data-type="genre" data-value="classical">🎻 Classical</button>
+                <div class="chip-divider"></div>
+                <button class="chip" data-type="action" data-value="random">🎲 Surprise Mix</button>
+                <button class="chip" data-type="action" data-value="help">❓ Show All</button>
+            </div>
+        </section>
+
+        <!-- Input Bar -->
+        <footer class="chat-input-area">
+            <form id="chat-form" class="input-form">
+                <input 
+                    type="text" 
+                    id="user-input" 
+                    class="chat-input" 
+                    placeholder="Type a mood (e.g. happy), genre (e.g. jazz), or artist..." 
+                    autocomplete="off"
+                    required
+                />
+                <button type="submit" id="send-btn" class="send-btn" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </form>
+        </footer>
+    </div>
+
+    <!-- Script -->
+    <script src="app.js"></script>
+</body>
+</html>
